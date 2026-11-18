@@ -1,0 +1,5 @@
+node_modules/
+native/publish/
+native/**/bin/
+native/**/obj/
+dist/
