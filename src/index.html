@@ -14,9 +14,10 @@
       <nav class="navigation" aria-label="Main navigation">
         <button class="nav-item active" data-page="home">Dashboard</button>
         <button class="nav-item" data-page="setup">Setup guide</button>
+        <button class="nav-item" data-page="controller">Keyboard controls</button>
         <button class="nav-item" data-page="about">About</button>
       </nav>
-      <div class="sidebar-bottom">BUILD 0.1.0 · PREVIEW</div>
+      <div class="sidebar-bottom">BUILD 0.2.0 · PREVIEW</div>
     </aside>
     <main class="main-content">
       <header class="topbar"><div><div class="eyebrow">CROSS-PLATFORM REMOTE PLAY</div><h1 id="page-title">Your console, on your PC.</h1></div><span class="topbar-pill">Windows desktop</span></header>
@@ -27,6 +28,7 @@
           <article class="platform-card"><div class="platform-label">PLAYSTATION</div><h3>PS5 / PS5 Pro</h3><p>Use Sony's official PS Remote Play app to stream your console to Windows.</p><button class="primary-button" id="launch-ps">Launch PS Remote Play</button><button class="text-button" id="choose-ps">Select app location</button><div class="app-location" id="ps-location">No app selected yet.</div></article>
           <article class="platform-card"><div class="platform-label">XBOX</div><h3>Xbox One / Series X|S</h3><p>Open Microsoft's Remote Play web player and sign in with your Xbox account.</p><button class="primary-button xbox-button" id="launch-xbox">Open Xbox Remote Play</button><button class="text-button" id="xbox-guide">View setup guide</button></article>
         </div>
+        <div class="controller-promo"><div><div class="eyebrow">NO CONTROLLER?</div><h3>Use your keyboard and mouse</h3><p>Map keyboard keys and mouse movement to a virtual controller for PS Remote Play.</p></div><button class="secondary-button" id="controller-guide">Configure controls</button></div>
         <p class="bottom-note">This is remote play, not console emulation. Games run on your own PlayStation or Xbox.</p>
       </section>
       <section class="page" id="page-setup">
@@ -36,7 +38,44 @@
           <article class="guide-card"><h3>Xbox setup</h3><ol><li>On Xbox, open Settings → Devices & connections → Remote features.</li><li>Enable remote features and run the remote-play test.</li><li>Keep your console online.</li><li>Open Xbox Remote Play and sign in.</li></ol><button class="secondary-button" id="xbox-open-guide">Open Xbox Remote Play</button></article>
         </div>
       </section>
-      <section class="page" id="page-about"><div class="about-card"><div class="eyebrow">PROJECT STATUS</div><h2>One launcher.<br><span>Two console families.</span></h2><p>This project launches official remote-play clients. It does not emulate console hardware or bypass platform protections.</p><p>Independent project. Not affiliated with Sony Interactive Entertainment or Microsoft.</p></div></section>
+      <section class="page" id="page-controller">
+        <div class="eyebrow">WINDOWS INPUT BRIDGE</div>
+        <div class="controller-layout">
+          <article class="controller-card">
+            <div class="controller-card-top"><div><h2>Keyboard to controller</h2><p>Translate keyboard and mouse input into a virtual DualShock 4 device.</p></div><span id="bridge-status" class="bridge-status">Stopped</span></div>
+            <div class="bridge-actions"><button class="primary-button" id="start-bridge">Start mapping</button><button class="secondary-button" id="stop-bridge" disabled>Stop mapping</button></div>
+            <p class="helper-copy">Start mapping, then switch to PS Remote Play. Press <strong>F8</strong> at any time to stop the mapper immediately.</p>
+          </article>
+          <article class="controller-card">
+            <div class="eyebrow">DEFAULT KEY MAP</div>
+            <div class="mapping-grid">
+              <div><span>W A S D</span><strong>Left stick</strong></div>
+              <div><span>Mouse movement</span><strong>Right stick</strong></div>
+              <div><span>X</span><strong>Cross (×)</strong></div>
+              <div><span>E</span><strong>Circle (○)</strong></div>
+              <div><span>R</span><strong>Square (□)</strong></div>
+              <div><span>F</span><strong>Triangle (△)</strong></div>
+              <div><span>Q / G</span><strong>L1 / R1</strong></div>
+              <div><span>Z / C</span><strong>L2 / R2</strong></div>
+              <div><span>Arrow keys</span><strong>D-pad</strong></div>
+              <div><span>Tab / Backspace</span><strong>Options / Share</strong></div>
+              <div><span>P / T</span><strong>PS / Touchpad</strong></div>
+            </div>
+          </article>
+          <article class="controller-card driver-card">
+            <div class="eyebrow">REQUIRED WINDOWS DRIVER</div>
+            <h3>Virtual gamepad driver</h3>
+            <p>The mapper needs ViGEmBus installed to create a virtual DualShock 4. This is an archived, discontinued driver and is no longer maintained.</p>
+            <button class="secondary-button" id="install-driver">Official driver releases</button>
+            <p class="helper-copy">Install it only from the official project release page. Restart Windows after installation if the virtual controller does not appear.</p>
+          </article>
+          <article class="controller-card compatibility-card">
+            <div class="eyebrow">IMPORTANT COMPATIBILITY LIMIT</div>
+            <p>This prototype creates a virtual <strong>DualShock 4</strong>, not a virtual DualSense. PS Remote Play supports both controller types, but some PS5 games require DualSense-specific features or may reject a DS4. This mapping is therefore not guaranteed to work in every PS5 game.</p>
+          </article>
+        </div>
+      </section>
+      <section class="page" id="page-about"><div class="about-card"><div class="eyebrow">PROJECT STATUS</div><h2>One launcher.<br><span>Two console families.</span></h2><p>This project launches official remote-play clients and includes an experimental keyboard-to-virtual-controller bridge. It does not emulate console hardware or bypass platform protections.</p><p>Independent project. Not affiliated with Sony Interactive Entertainment or Microsoft.</p></div></section>
     </main>
   </div>
   <script src="renderer.js"></script>
