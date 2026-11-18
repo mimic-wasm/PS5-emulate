@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Nefarius.ViGEm.Client;
 using Nefarius.ViGEm.Client.Targets;
@@ -227,8 +226,8 @@ internal static class Program
                     {
                         if (pad is not null)
                         {
-                            byte rightX = (byte)Math.Clamp(128 + deltaX * 4, 0, 255);
-                            byte rightY = (byte)Math.Clamp(128 + deltaY * 4, 0, 255);
+                            byte rightX = (byte)Math.Clamp(128 + deltaX * 16, 0, 255);
+                            byte rightY = (byte)Math.Clamp(128 + deltaY * 16, 0, 255);
                             pad.SetAxisValue(DualShock4Axis.RightThumbX, rightX);
                             pad.SetAxisValue(DualShock4Axis.RightThumbY, rightY);
                             mouseResetTimer?.Change(45, Timeout.Infinite);
