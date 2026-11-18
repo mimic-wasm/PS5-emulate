@@ -1,11 +1,13 @@
 {
   "name": "gta6-emulate",
-  "version": "0.1.0",
-  "description": "A unified desktop launcher for official PlayStation and Xbox Remote Play clients.",
+  "version": "0.2.0",
+  "description": "A Windows desktop launcher with keyboard and mouse mapping for official PlayStation Remote Play.",
   "main": "src/main.js",
   "private": true,
   "scripts": {
-    "start": "electron ."
+    "start": "npm run build:bridge && electron .",
+    "start:app": "electron .",
+    "build:bridge": "dotnet publish native/InputBridge/InputBridge.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o native/publish"
   },
   "devDependencies": {
     "electron": "^38.0.0"
