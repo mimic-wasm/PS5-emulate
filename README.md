@@ -1,4 +1,4 @@
-# GTA6-emulate
+# PS5-emulate
 
 A Windows desktop launcher for the official PlayStation and Xbox Remote Play experiences. It also includes an experimental keyboard-and-mouse to virtual DualShock 4 bridge for PS Remote Play.
 
