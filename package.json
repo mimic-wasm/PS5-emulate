@@ -1,0 +1,13 @@
+{
+  "name": "gta6-emulate",
+  "version": "0.1.0",
+  "description": "A unified desktop launcher for official PlayStation and Xbox Remote Play clients.",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^38.0.0"
+  }
+}
