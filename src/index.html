@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b10">
+  <title>GTA6-emulate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">CB</div><div><strong>GTA6-emulate</strong><small>CONSOLE REMOTE PLAY</small></div></div>
+      <nav class="navigation" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home">Dashboard</button>
+        <button class="nav-item" data-page="setup">Setup guide</button>
+        <button class="nav-item" data-page="about">About</button>
+      </nav>
+      <div class="sidebar-bottom">BUILD 0.1.0 · PREVIEW</div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div><div class="eyebrow">CROSS-PLATFORM REMOTE PLAY</div><h1 id="page-title">Your console, on your PC.</h1></div><span class="topbar-pill">Windows desktop</span></header>
+      <section class="page active" id="page-home">
+        <div class="intro-card"><div class="eyebrow">ONE PLACE FOR BOTH</div><h2>Pick a console.<br><span>Keep playing.</span></h2><p>Connect to a console you own using its official Remote Play service. Your console runs the game and streams it to your PC.</p></div>
+        <div class="section-heading"><div class="eyebrow">AVAILABLE PLATFORMS</div><h2>Choose your console</h2></div>
+        <div class="platform-grid">
+          <article class="platform-card"><div class="platform-label">PLAYSTATION</div><h3>PS5 / PS5 Pro</h3><p>Use Sony's official PS Remote Play app to stream your console to Windows.</p><button class="primary-button" id="launch-ps">Launch PS Remote Play</button><button class="text-button" id="choose-ps">Select app location</button><div class="app-location" id="ps-location">No app selected yet.</div></article>
+          <article class="platform-card"><div class="platform-label">XBOX</div><h3>Xbox One / Series X|S</h3><p>Open Microsoft's Remote Play web player and sign in with your Xbox account.</p><button class="primary-button xbox-button" id="launch-xbox">Open Xbox Remote Play</button><button class="text-button" id="xbox-guide">View setup guide</button></article>
+        </div>
+        <p class="bottom-note">This is remote play, not console emulation. Games run on your own PlayStation or Xbox.</p>
+      </section>
+      <section class="page" id="page-setup">
+        <div class="eyebrow">FIRST-TIME CONNECTION</div><h2>Get your console ready</h2>
+        <div class="guide-grid">
+          <article class="guide-card"><h3>PS5 setup</h3><ol><li>On your PS5, open Settings → System → Remote Play.</li><li>Turn on Enable Remote Play.</li><li>Install the official PS Remote Play app on Windows.</li><li>Sign in with the same PlayStation account as your console.</li><li>Connect your controller to the PC and select your PS5.</li></ol><button class="secondary-button" id="ps-download">Official PS Remote Play page</button></article>
+          <article class="guide-card"><h3>Xbox setup</h3><ol><li>On Xbox, open Settings → Devices & connections → Remote features.</li><li>Enable remote features and run the remote-play test.</li><li>Keep your console online.</li><li>Open Xbox Remote Play and sign in.</li></ol><button class="secondary-button" id="xbox-open-guide">Open Xbox Remote Play</button></article>
+        </div>
+      </section>
+      <section class="page" id="page-about"><div class="about-card"><div class="eyebrow">PROJECT STATUS</div><h2>One launcher.<br><span>Two console families.</span></h2><p>This project launches official remote-play clients. It does not emulate console hardware or bypass platform protections.</p><p>Independent project. Not affiliated with Sony Interactive Entertainment or Microsoft.</p></div></section>
+    </main>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
