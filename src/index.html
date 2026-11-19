@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b10">
-  <title>GTA6-emulate</title>
+  <title>PS5-emulate</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <div class="brand"><div class="brand-mark">CB</div><div><strong>GTA6-emulate</strong><small>CONSOLE REMOTE PLAY</small></div></div>
+      <div class="brand"><div class="brand-mark">CB</div><div><strong>PS5-emulate</strong><small>CONSOLE REMOTE PLAY</small></div></div>
       <nav class="navigation" aria-label="Main navigation">
         <button class="nav-item active" data-page="home">Dashboard</button>
         <button class="nav-item" data-page="setup">Setup guide</button>
         <button class="nav-item" data-page="controller">Keyboard controls</button>
         <button class="nav-item" data-page="about">About</button>
       </nav>
-      <div class="sidebar-bottom">BUILD 0.2.0 · PREVIEW</div>
+      <div class="sidebar-bottom">BUILD 0.3.0 · PREVIEW</div>
     </aside>
     <main class="main-content">
       <header class="topbar"><div><div class="eyebrow">CROSS-PLATFORM REMOTE PLAY</div><h1 id="page-title">Your console, on your PC.</h1></div><span class="topbar-pill">Windows desktop</span></header>
@@ -29,7 +29,7 @@
           <article class="platform-card"><div class="platform-label">XBOX</div><h3>Xbox One / Series X|S</h3><p>Open Microsoft's Remote Play web player and sign in with your Xbox account.</p><button class="primary-button xbox-button" id="launch-xbox">Open Xbox Remote Play</button><button class="text-button" id="xbox-guide">View setup guide</button></article>
         </div>
         <div class="controller-promo"><div><div class="eyebrow">NO CONTROLLER?</div><h3>Use your keyboard and mouse</h3><p>Map keyboard keys and mouse movement to a virtual controller for PS Remote Play.</p></div><button class="secondary-button" id="controller-guide">Configure controls</button></div>
-        <p class="bottom-note">This is remote play, not console emulation. Games run on your own PlayStation or Xbox.</p>
+        <p class="bottom-note">Press <strong>F1 + Esc</strong> to open Settings. Games run on your own PlayStation or Xbox.</p>
       </section>
       <section class="page" id="page-setup">
         <div class="eyebrow">FIRST-TIME CONNECTION</div><h2>Get your console ready</h2>
@@ -44,22 +44,19 @@
           <article class="controller-card">
             <div class="controller-card-top"><div><h2>Keyboard to controller</h2><p>Translate keyboard and mouse input into a virtual DualShock 4 device.</p></div><span id="bridge-status" class="bridge-status">Stopped</span></div>
             <div class="bridge-actions"><button class="primary-button" id="start-bridge">Start mapping</button><button class="secondary-button" id="stop-bridge" disabled>Stop mapping</button></div>
-            <p class="helper-copy">Start mapping, then switch to PS Remote Play. Press <strong>F8</strong> at any time to stop the mapper immediately.</p>
+            <p class="helper-copy">Start mapping, then switch to PS Remote Play. Press <strong>F8</strong> at any time to stop the mapper. Press <strong>F1 + Esc</strong> to open Settings.</p>
           </article>
           <article class="controller-card">
             <div class="eyebrow">DEFAULT KEY MAP</div>
             <div class="mapping-grid">
               <div><span>W A S D</span><strong>Left stick</strong></div>
               <div><span>Mouse movement</span><strong>Right stick</strong></div>
-              <div><span>X</span><strong>Cross (×)</strong></div>
-              <div><span>E</span><strong>Circle (○)</strong></div>
-              <div><span>R</span><strong>Square (□)</strong></div>
-              <div><span>F</span><strong>Triangle (△)</strong></div>
+              <div><span>X / E / R / F</span><strong>Cross / Circle / Square / Triangle</strong></div>
               <div><span>Q / G</span><strong>L1 / R1</strong></div>
               <div><span>Z / C</span><strong>L2 / R2</strong></div>
-              <div><span>Arrow keys</span><strong>D-pad</strong></div>
-              <div><span>Tab / Backspace</span><strong>Options / Share</strong></div>
-              <div><span>P / T</span><strong>PS / Touchpad</strong></div>
+              <div><span>Esc</span><strong>Options</strong></div>
+              <div><span>Arrows</span><strong>D-pad</strong></div>
+              <div><span>Backspace / P / T</span><strong>Share / PS / Touchpad</strong></div>
             </div>
           </article>
           <article class="controller-card driver-card">
@@ -71,12 +68,43 @@
           </article>
           <article class="controller-card compatibility-card">
             <div class="eyebrow">IMPORTANT COMPATIBILITY LIMIT</div>
-            <p>This prototype creates a virtual <strong>DualShock 4</strong>, not a virtual DualSense. PS Remote Play supports both controller types, but some PS5 games require DualSense-specific features or may reject a DS4. This mapping is therefore not guaranteed to work in every PS5 game.</p>
+            <p>This prototype creates a virtual <strong>DualShock 4</strong>, not a DualSense. PS Remote Play supports both controller types, but some PS5 games require DualSense-specific features or may reject a virtual DS4.</p>
           </article>
         </div>
       </section>
-      <section class="page" id="page-about"><div class="about-card"><div class="eyebrow">PROJECT STATUS</div><h2>One launcher.<br><span>Two console families.</span></h2><p>This project launches official remote-play clients and includes an experimental keyboard-to-virtual-controller bridge. It does not emulate console hardware or bypass platform protections.</p><p>Independent project. Not affiliated with Sony Interactive Entertainment or Microsoft.</p></div></section>
+      <section class="page" id="page-about"><div class="about-card"><div class="eyebrow">PROJECT STATUS</div><h2>One launcher.<br><span>Two console families.</span></h2><p>This project launches official remote-play clients and includes an experimental keyboard-to-virtual-controller bridge. It does not emulate console hardware or bypass platform protections.</p><p>Independent project. Not affiliated with Sony or Microsoft.</p></div></section>
     </main>
+  </div>
+
+  <div class="settings-overlay hidden" id="settings-overlay" aria-hidden="true">
+    <div class="settings-backdrop" id="settings-backdrop"></div>
+    <section class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="settings-header">
+        <div><div class="eyebrow">PERSONALIZE YOUR CONTROLS</div><h2 id="settings-title">Settings</h2></div>
+        <button class="settings-close" id="settings-close" aria-label="Close settings">×</button>
+      </div>
+      <div class="settings-content">
+        <section class="settings-section">
+          <h3>Application resolution</h3>
+          <select id="settings-resolution" class="settings-select">
+            <option value="Default">Default · 1180 × 780</option>
+            <option value="1920x1080">1920 × 1080</option>
+            <option value="1600x900">1600 × 900</option>
+            <option value="1280x720">1280 × 720</option>
+            <option value="1024x576">1024 × 576</option>
+          </select>
+          <p class="settings-help">This changes the PS5-emulate app window size. It cannot change the video quality selected inside Sony's PS Remote Play app.</p>
+        </section>
+        <section class="settings-section">
+          <div class="settings-section-heading"><div><h3>DualShock button mapping</h3><p class="settings-help">Select a controller action, then press the keyboard key you want to assign.</p></div><button class="text-button" id="settings-reset">Reset defaults</button></div>
+          <div id="settings-mapping-list" class="settings-mapping-list"></div>
+        </section>
+        <div class="settings-footer">
+          <span id="settings-message" class="settings-message">F1 + Esc opens these settings. Esc alone presses Options.</span>
+          <button class="primary-button" id="save-settings">Save settings</button>
+        </div>
+      </div>
+    </section>
   </div>
   <script src="renderer.js"></script>
 </body>
