@@ -20,30 +20,36 @@ This does not emulate PS5 or Xbox hardware. Your console runs the game and strea
 5. Run `npm install`.
 6. Run `npm start`. This builds the native input bridge and opens the Electron app.
 
-To build only the native bridge, run `npm run build:bridge`.
-
 ## Keyboard and mouse mapping
 
-Open **Keyboard controls** in the app and press **Start mapping**. Switch to PS Remote Play after the status says the virtual controller is connected. Press **F8** to stop the bridge immediately.
+Open **Keyboard controls** and press **Start mapping**. Switch to PS Remote Play after the virtual controller connects.
 
-| Input | Virtual controller |
+- Press **F1 + Esc** to open Settings from anywhere.
+- Press **Esc** by itself to send the virtual DualShock 4 Options button.
+- Press **F8** to stop the mapper immediately.
+- Change the keyboard assigned to each controller action in Settings.
+- Choose the PS5-emulate application window size in Settings.
+
+The selected resolution changes this launcher's window size only. It does not change Sony PS Remote Play's stream quality. Adjust the stream quality in Sony's app settings.
+
+## Default mapping
+
+| Keyboard | Virtual DualShock 4 |
 |---|---|
 | WASD | Left analog stick |
 | Mouse movement | Right analog stick |
 | X / E / R / F | Cross / Circle / Square / Triangle |
 | Q / G | L1 / R1 |
 | Z / C | L2 / R2 |
-| Arrow keys | D-pad |
-| Tab / Backspace | Options / Share |
+| Esc / Backspace | Options / Share |
 | P / T | PS / Touchpad |
-
-Mapped keyboard keys are intercepted while the bridge is running. Mouse movement is read globally for right-stick input.
+| Arrow keys | D-pad |
 
 ## Compatibility limitations
 
 The bridge uses ViGEmBus and creates a virtual **DualShock 4**, not a DualSense. Sony's Windows Remote Play app supports DUALSHOCK 4, DualSense, and DualSense Edge controllers, but individual PS5 games may require DualSense-specific input or reject a virtual DS4. This prototype is not guaranteed to work with every PS5 game.
 
-ViGEmBus and its .NET client were archived and retired by their maintainers in 2023. They no longer receive updates. The project uses the published NuGet client and official archived driver releases. Install drivers only from the official project release page.
+ViGEmBus and its .NET client were archived and retired by their maintainers in 2023. They no longer receive updates. Install drivers only from the official project release page.
 
 ## PlayStation and Xbox
 
