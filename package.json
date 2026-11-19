@@ -1,7 +1,7 @@
 {
-  "name": "gta6-emulate",
-  "version": "0.2.0",
-  "description": "A Windows desktop launcher with keyboard and mouse mapping for official PlayStation Remote Play.",
+  "name": "ps5-emulate",
+  "version": "0.3.0",
+  "description": "A Windows desktop launcher with configurable keyboard and mouse mapping for official PlayStation Remote Play.",
   "main": "src/main.js",
   "private": true,
   "scripts": {
